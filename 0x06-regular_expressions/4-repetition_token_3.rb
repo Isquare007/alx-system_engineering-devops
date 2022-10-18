@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 #Matches tttttt
 
-puts ARGV[0].scan(/hb{1}[t]*[^o]n?/).join
+puts ARGV[0].scan(/hb{1}[t]*n/).join
