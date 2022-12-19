@@ -13,5 +13,4 @@ sudo sed -i "51i\ \terror_page 404 /error_404.html;\n\tlocation = /error_404.htm
 
 sudo sed -i "47i\ \n\tadd_header X-Served-By \$hostname\;\n" /etc/nginx/sites-enabled/default
 
-sudo service nginx start
-
+sudo service nginx restart
