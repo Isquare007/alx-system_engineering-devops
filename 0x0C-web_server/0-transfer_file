@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Write a Bash script that transfers a file from our client to a server
-
+# A Bash script that transfers a file from our client to a server
+# arg1: path to file, arg2: IP, arg3: username, arg4: pathtosshkey
 if [ $# -lt 3 ];
 then
 	echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
