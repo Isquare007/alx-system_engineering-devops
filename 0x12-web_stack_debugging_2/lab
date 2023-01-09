@@ -1,0 +1,6 @@
+server {                                                               
+         default_server;                                      
+         default_server ipv6only=on;                     
+                                                                       
+        root /usr/share/nginx/html;                                    
+        index index.html index.htm; 
