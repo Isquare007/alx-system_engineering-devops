@@ -10,8 +10,13 @@ if __name__ == '__main__':
     url = "https://jsonplaceholder.typicode.com"
     employeeId = argv[1]
 
-    employee = requests.get("{}/users/{}".format(url, employeeId), verify=False).json()
-    todos = requests.get("{}/todos".format(url), params={"userId": employeeId}, verify=False).json()
+    employee = requests.get(
+        "{}/users/{}".format(url, employeeId), verify=False).json()
+    todos = requests.get(
+        "{}/todos".format(url),
+        params={
+            "userId": employeeId},
+        verify=False).json()
 
     done_task = []
     for data in todos:
@@ -22,7 +27,8 @@ if __name__ == '__main__':
 
     csv_list = []
     for data in todos:
-        csv_list.append([employeeId, userName, data.get("completed"), data.get("title")])
+        csv_list.append([employeeId, userName, data.get(
+            "completed"), data.get("title")])
 
     filename = "{}.csv".format(employeeId)
 
