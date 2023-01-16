@@ -4,7 +4,7 @@ a script that returns info about a customer's todo list
 """
 import requests
 from sys import argv
-
+import csv
 
 if __name__ == '__main__':
     url = "https://jsonplaceholder.typicode.com"
@@ -18,12 +18,16 @@ if __name__ == '__main__':
         if data.get('completed') is True:
             done_task.append(data.get('title'))
 
-    employee_name = employee.get('name')
-    tasks_done_length = len(done_task)
-    tasks_length = len(todos)
+    userId = employee.get('id')
+    
+    csv_list = []
+    for data in todos:
+        csv_list.append([data.get("userId"), employee.get("username"), data.get("completed"), data.get("title")])
 
-    print("Employee {} is done with tasks({}/{}):".format(employee_name,
-          tasks_done_length, tasks_length))
+    filename = "{}.csv".format(userId)
 
-    for title in done_task:
-        print("\t {}".format(title))
+    with open(filename, 'w', newline='') as csvfile:
+        csvwriter = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
+
+        for line in csv_list:
+            csvwriter.writerow(line)
