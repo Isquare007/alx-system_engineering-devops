@@ -11,12 +11,11 @@ if __name__ == '__main__':
     employeeId = argv[1]
 
     employee = requests.get(
-        "{}/users/{}".format(url, employeeId), verify=False).json()
+        "{}/users/{}".format(url, employeeId)).json()
     todos = requests.get(
         "{}/todos".format(url),
         params={
-            "userId": employeeId},
-        verify=False).json()
+            "userId": employeeId},).json()
 
     done_task = []
     for data in todos:
