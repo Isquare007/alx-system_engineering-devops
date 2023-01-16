@@ -17,11 +17,10 @@ if __name__ == '__main__':
         params={
             "userId": employeeId},).json()
 
-
     userName = employee.get('username')
 
     json_list = [{'task': data.get("title"), "completed": data.get(
-            "completed"), "username": userName} for data in todos]
+        "completed"), "username": userName} for data in todos]
 
     json_f = {}
     json_f[employeeId] = json_list
