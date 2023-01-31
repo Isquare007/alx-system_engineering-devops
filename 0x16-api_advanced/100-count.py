@@ -6,11 +6,12 @@ from requests import get
 
 
 def count_words(subreddit, word_list, after='', count=Counter()):
+    """ recursive function that queries the Reddit API """
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     params = {
-            "limit": 100,
-            "after": after
-            }
+        "limit": 100,
+        "after": after
+    }
     response = get(url, headers={'User-Agent': 'MyBot/0.0.1'}, params=params)
     if response.status_code == 200:
         data = response.json()
@@ -19,7 +20,7 @@ def count_words(subreddit, word_list, after='', count=Counter()):
             for word in word_list:
                 count[word] += len(
                     re.findall(
-                        f'(?<![._]){word}(?![._])',
+                        "(?<![._]){}(?![._])".format(word),
                         title))
         after = data['data']['after']
         if after:
