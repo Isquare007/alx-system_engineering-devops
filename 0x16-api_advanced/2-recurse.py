@@ -8,8 +8,7 @@ from sys import argv
 def recurse(subreddit, hot_list=[], after=None):
     """recursive function that returns a list containing the
     titles of all hot articles for a given subreddit"""
-    subreddit = argv[1]
-    url = f"https://www.reddit.com/r/{subreddit}/hot.json"
+    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     params = {
         "limit": 100,
         "after": after

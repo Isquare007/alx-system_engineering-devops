@@ -6,7 +6,7 @@ from requests import get
 
 
 def count_words(subreddit, word_list, after='', count=Counter()):
-    url = f'https://www.reddit.com/r/{subreddit}/hot.json'
+    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     params = {
             "limit": 100,
             "after": after
