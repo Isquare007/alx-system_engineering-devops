@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Reddit API call"""
 
-from sys import argv
 import requests
+from sys import argv
 
 
 def number_of_subscribers(subreddit):
