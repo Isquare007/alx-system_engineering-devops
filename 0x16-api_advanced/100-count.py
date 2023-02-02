@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Reddit API"""
-import re
 from collections import Counter
+import re
 from requests import get
 
 
