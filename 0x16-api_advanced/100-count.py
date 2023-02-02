@@ -29,7 +29,7 @@ def count_words(subreddit, word_list, after='', found_word=[]):
                         "(?<![._]){}(?![._])".format(word),
                         title))
         after = data['data']['after']"""
-        after = data['after']
+        after = data['data']['after']
         if after:
             count_words(subreddit, word_list, after, found_word)
         else:
